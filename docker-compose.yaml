@@ -8,7 +8,7 @@ services:
         environment:
             - DISPLAY=${DISPLAY}
         ports:
-            - 80:80
+            - 80:8000
         volumes:
             - ./:/code
             - /tmp/.X11-unix:/tmp/.X11-unix

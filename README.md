@@ -3,5 +3,6 @@
 By Gustavo Morais, Zend Certified PHP Engineer
 
 ```bash
-sudo xhost + # run this command at the computer terminal
+# run this command at the computer terminal to allow the container buil gui windows
+sudo xhost + 
 ```
