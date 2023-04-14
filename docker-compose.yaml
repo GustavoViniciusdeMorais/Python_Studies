@@ -5,6 +5,7 @@ services:
         build:
             context: .
             dockerfile: python.dockerfile
+        container_name: pystd
         environment:
             - DISPLAY=${DISPLAY}
         ports:
@@ -13,8 +14,13 @@ services:
             - ./:/code
             - /tmp/.X11-unix:/tmp/.X11-unix
         networks:
-            - app-network
+            python-app-network:
+                ipv4_address: 11.0.0.8
 
 networks:
-    app-network:
+    python-app-network:
         driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "11.0.0.0/16"
