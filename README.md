@@ -21,4 +21,7 @@ uvicorn main:app --reload --host=0.0.0.0
 
 ### Routes
 GET http://localhost/url-query/?id=2
+<br>
 GET http://localhost/docs
+
+![](./imgs/usersPost.png)

@@ -1,6 +1,13 @@
 from fastapi import FastAPI
 from typing import Union
 
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from src.Models.User import User
+
 app = FastAPI()
 
 
@@ -24,3 +31,7 @@ async def url_query(
         result.update({"name":name})
     
     return result
+
+@app.post("/users")
+async def create_user(user: User):
+    return user
