@@ -5,7 +5,7 @@ By Gustavo Morais, Zend Certified PHP Engineer
 
 ### Doc link
 ```
-https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
+https://fastapi.tiangolo.com/tutorial/
 ```
 
 ```bash
