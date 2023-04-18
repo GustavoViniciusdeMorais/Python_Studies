@@ -29,5 +29,8 @@ uvicorn main:app --reload --host=0.0.0.0
 GET http://localhost/url-query/?id=2
 <br>
 GET http://localhost/docs
+<br>
+GET http://localhost/validations/?q=111
+<br>
 
 ![](./imgs/usersPost.png)

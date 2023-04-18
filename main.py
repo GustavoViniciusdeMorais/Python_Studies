@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
+from typing_extensions import Annotated
 from typing import Union
 
 import sys
@@ -35,3 +36,15 @@ async def url_query(
 @app.post("/users")
 async def create_user(user: User):
     return user
+
+@app.get("/validations/")
+async def validation_exmaple(
+    q: Annotated[
+        Union[str, None],
+        Query(min_length=3, max_length=50, regex="\d+")
+    ] = "mambo jambo"
+):
+    result = {"q": q}
+    if q:
+        result.update({"q": q})
+    return result
