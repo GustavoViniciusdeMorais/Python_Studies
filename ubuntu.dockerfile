@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM gustavovinicius/guspy:py3
 
 RUN apt update
 
