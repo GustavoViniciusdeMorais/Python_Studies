@@ -1,15 +1,18 @@
-# Python Study
+# Python Flask REST API
 
-By Gustavo Morais, Zend Certified PHP Engineer
+Created by Gustavo Morais
 
-```bash
-# run this command at the computer terminal to allow the container buil gui windows
-sudo xhost + 
+Python3 is already at ubuntu:jammy
 
-# Django commands
-
-cd mysite
-
-python manage.py runserver 0.0.0.0:8000
-
+```sh
 ```
+### Install pip3
+```sh
+apt-get update
+apt install python3-pip -y
+```
+### Run the simple API
+```sh
+python3 src/app.py
+```
+

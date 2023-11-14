@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    guspy:
+        build:
+            context: .
+            dockerfile: ubuntu.dockerfile
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www/html
+        container_name: guspy
+        networks:
+          gus-python-network:
+            ipv4_address: 12.0.0.9
+
+networks:
+    gus-python-network:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "12.0.0.0/16"
