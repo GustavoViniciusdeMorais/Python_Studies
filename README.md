@@ -6,6 +6,11 @@ Created by Gustavo Morais
 https://hub.docker.com/r/gustavovinicius/guspy
 ```
 
+### Project stack
+- [Flask-API](https://flask.palletsprojects.com/en/3.0.x/)
+- [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)
+- [SQLite](https://www.sqlite.org/docs.html)
+
 Python3 is already at ubuntu:jammy
 
 ```sh
