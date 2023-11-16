@@ -9,6 +9,7 @@ https://hub.docker.com/r/gustavovinicius/guspy
 ### Project stack
 - [Flask-API](https://flask.palletsprojects.com/en/3.0.x/)
 - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)
+- [Flask marshmallow](https://pypi.org/project/flask-marshmallow/)
 - [SQLite](https://www.sqlite.org/docs.html)
 - [SQLite SGBD](https://sqlitebrowser.org/dl/)
 
