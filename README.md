@@ -10,6 +10,7 @@ https://hub.docker.com/r/gustavovinicius/guspy
 - [Flask-API](https://flask.palletsprojects.com/en/3.0.x/)
 - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)
 - [SQLite](https://www.sqlite.org/docs.html)
+- [SQLite SGBD](https://sqlitebrowser.org/dl/)
 
 Python3 is already at ubuntu:jammy
 

@@ -1,4 +1,4 @@
-FROM gustavovinicius/guspy:py3
+FROM gustavovinicius/guspy:flask
 
 RUN apt update
 
