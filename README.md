@@ -26,4 +26,8 @@ apt install python3-pip -y
 ```sh
 python3 src/app.py
 ```
+### Build database with flask
+```ssh
+flask db_create
+```
 
