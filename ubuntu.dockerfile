@@ -1,4 +1,4 @@
-FROM gustavovinicius/guspy:flask
+FROM gustavovinicius/guspy:flaskmarshmallow
 
 RUN apt update
 

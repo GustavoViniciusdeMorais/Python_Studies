@@ -6,6 +6,17 @@ Created by Gustavo Morais
 https://hub.docker.com/r/gustavovinicius/guspy
 ```
 
+### Simple test of the project
+```sh
+sudo ./gusdockerv1.sh --start
+sudo ./gusdockerv1.sh guspy bash
+cd src/
+chmod u+x restartDb.sh
+./restartDb.sh
+
+GET http://localhost/planets
+```
+
 ### Project stack
 - [Flask-API](https://flask.palletsprojects.com/en/3.0.x/)
 - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)
