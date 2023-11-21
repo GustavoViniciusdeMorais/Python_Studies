@@ -23,6 +23,8 @@ GET http://localhost/planets
 - [Flask marshmallow](https://pypi.org/project/flask-marshmallow/)
 - [SQLite](https://www.sqlite.org/docs.html)
 - [SQLite SGBD](https://sqlitebrowser.org/dl/)
+- [flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/)
+    - pip install flask-jwt-extended
 
 Python3 is already at ubuntu:jammy
 
