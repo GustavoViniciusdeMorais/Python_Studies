@@ -75,6 +75,42 @@ def planets():
         "data": result
     })
 
+@app.route('/users', methods=['GET'])
+def users():
+    users_list = User.query.all()
+    userss_schema = UserSchema(many=True)
+    result = userss_schema.dump(users_list)
+    return jsonify({
+        "data": result
+    })
+
+@app.route('/register', methods=['POST'])
+def register():
+    result = None
+    message = None
+    email = request.form['email']
+    emailExists = User.query.filter_by(email=email).first()
+    if emailExists:
+        result = 'User exists'
+        message = 'Registration error!'
+    else:
+        first_name = request.form['first_name']
+        password = request.form['password']
+        newUser = User(
+            first_name = first_name,
+            email = email,
+            password = password
+        )
+        db.session.add(newUser)
+        db.session.commit()
+        userSchema = UserSchema()
+        result = userSchema.dump(newUser)
+        message = 'Registration success!'
+
+    return jsonify({
+        "message": message,
+        "data": result
+    })
 
 # database models
 class User(db.Model):

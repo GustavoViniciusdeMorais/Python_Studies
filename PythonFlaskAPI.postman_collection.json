@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "d9431f62-c706-44df-9c92-f085a132e106",
+		"name": "PythonFlaskAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27562982",
+		"_collection_link": "https://galactic-resonance-431183.postman.co/workspace/Dot~0c5cf140-812b-4974-953f-6721a5f73986/collection/27562982-d9431f62-c706-44df-9c92-f085a132e106?action=share&source=collection_link&creator=27562982"
+	},
+	"item": [
+		{
+			"name": "Planets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/planets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"planets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test{{$timestamp}}@mail.py",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "test {{$randomWord}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{passwd}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
