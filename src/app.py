@@ -3,6 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
 import os
 from flask_marshmallow import Marshmallow
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -10,6 +14,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, 'pl
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+
+# Setup the Flask-JWT-Extended extension
+app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
+jwt = JWTManager(app)
 
 @app.cli.command('db_create')
 def db_create():
@@ -111,6 +119,32 @@ def register():
         "message": message,
         "data": result
     })
+
+@app.route('/login', methods=['POST'])
+def login():
+    message = None
+    access_token = None
+    if request.is_json:
+        email = request.json['email']
+        pwd = request.json['pwd']
+    else:
+        email = request.form['email']
+        pwd = request.form['pwd']
+    search_user = User.query.filter_by(email=email, password=pwd).first()
+    if search_user:
+        access_token = create_access_token(identity=email)
+        message = 'Success!'
+    else:
+        access_token = False
+        message = 'Error'
+    return jsonify({"message":message, "data": access_token})
+
+# Request this route with Authorization: Bearer [access_token] at its header
+@app.route('/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify(logged_in_as=current_user), 200
 
 # database models
 class User(db.Model):

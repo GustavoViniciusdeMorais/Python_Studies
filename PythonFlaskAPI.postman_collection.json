@@ -80,6 +80,57 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Protected Route Example",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMDY3MTU4NSwianRpIjoiMTQyYmU4NjktM2I0MC00NjIyLWIwMWYtYzcyMTZiYTk4NjU5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXJAbWFsaW5hdG9yLmNvbSIsIm5iZiI6MTcwMDY3MTU4NSwiZXhwIjoxNzAwNjcyNDg1fQ.9aiZ1fHYHJBEamqK6IATEUY_PhdXdM9oK8f28sw2Bag",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/protected",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"user@malinator.com\",\n    \"pwd\": \"p@ssw04d!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

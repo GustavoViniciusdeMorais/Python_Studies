@@ -16,7 +16,8 @@ chmod u+x restartDb.sh
 
 GET http://localhost/planets
 ```
-
+### Python code standards
+[Python PEPs](https://peps.python.org/pep-0008/)
 ### Project stack
 - [Flask-API](https://flask.palletsprojects.com/en/3.0.x/)
 - [Flask-SQLAlchemy](https://pypi.org/project/Flask-SQLAlchemy/)
@@ -43,4 +44,7 @@ python3 src/app.py
 ```ssh
 flask db_create
 ```
-
+### List all installed libraries
+```sh
+pip list
+```
