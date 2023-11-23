@@ -26,6 +26,7 @@ GET http://localhost/planets
 - [SQLite SGBD](https://sqlitebrowser.org/dl/)
 - [flask-jwt-extended](https://flask-jwt-extended.readthedocs.io/en/stable/)
     - pip install flask-jwt-extended
+- [Flask-Mail](https://pythonhosted.org/Flask-Mail/)
 
 Python3 is already at ubuntu:jammy
 

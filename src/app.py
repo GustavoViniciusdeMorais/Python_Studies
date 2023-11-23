@@ -7,13 +7,17 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, 'planets.db')
+app.config['MAIL_SERVER'] = 'mailhogpy'
+app.config['MAIL_PORT'] = '1025'
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+mail = Mail(app)
 
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
@@ -145,6 +149,17 @@ def login():
 def protected():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
+
+@app.route('/sendmail', methods=['POST'])
+def sendmail():
+    msg = Message("Hello",
+                  sender="from@example.com",
+                  recipients=["to@example.com"])
+    msg.body = "testing"
+    result = mail.send(msg)
+    return jsonify({
+        "data": result
+    })
 
 # database models
 class User(db.Model):

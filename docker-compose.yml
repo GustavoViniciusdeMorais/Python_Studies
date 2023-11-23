@@ -13,6 +13,16 @@ services:
         networks:
           gus-python-network:
             ipv4_address: 12.0.0.9
+    
+    mailhogpy:
+        image: mailhog/mailhog
+        container_name: mailhogpy
+        ports:
+            - 1025:1025
+            - 8025:8025
+        networks:
+            gus-python-network:
+                ipv4_address: 12.0.0.10
 
 networks:
     gus-python-network:
