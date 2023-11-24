@@ -87,6 +87,15 @@ def planets():
         "data": result
     })
 
+@app.route('/planets/<int:id>', methods=['GET'])
+def planet_details(id: int):
+    planet = Planet.query.filter_by(planet_id=id).first()
+    planet_schema = PlanetSchema()
+    result = planet_schema.dump(planet)
+    return jsonify({
+        "data": result
+    })
+
 @app.route('/users', methods=['GET'])
 def users():
     users_list = User.query.all()
@@ -152,11 +161,16 @@ def protected():
 
 @app.route('/sendmail', methods=['POST'])
 def sendmail():
-    msg = Message("Hello",
-                  sender="from@example.com",
-                  recipients=["to@example.com"])
-    msg.body = "testing"
-    result = mail.send(msg)
+    result = None
+    try:
+        msg = Message("Hello",
+                    sender="from@example.com",
+                    recipients=["to@example.com"])
+        msg.body = "testing"
+        mail.send(msg)
+        result = 'Email was sent'
+    except:
+        result = "Some error has ocorred"
     return jsonify({
         "data": result
     })

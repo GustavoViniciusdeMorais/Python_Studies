@@ -131,6 +131,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "SendEmail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/sendmail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sendmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlanetDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/planets/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"planets",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
