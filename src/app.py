@@ -175,6 +175,29 @@ def sendmail():
         "data": result
     })
 
+@app.route('/add_planet', methods=['POST'])
+def add_planet():
+    name = request.form['name']
+    planet_type = request.form['type']
+    mass = request.form['mass']
+    distance = request.form['distance']
+    planet = Planet(
+        planet_name = name,
+        planet_type = planet_type,
+        mass = mass,
+        distance = distance,
+    )
+    db.session.add(planet)
+    db.session.commit()
+    planetSchema = PlanetSchema()
+    result = planetSchema.dump(planet)
+    message = 'Registration success!'
+    return jsonify({
+        "message": message,
+        "data": result
+    })
+
+
 # database models
 class User(db.Model):
     __tablename__ = 'users'
