@@ -1,3 +1,4 @@
+import sys
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float
@@ -176,22 +177,27 @@ def sendmail():
     })
 
 @app.route('/add_planet', methods=['POST'])
-def add_planet():
-    name = request.form['name']
-    planet_type = request.form['type']
-    mass = request.form['mass']
-    distance = request.form['distance']
-    planet = Planet(
-        planet_name = name,
-        planet_type = planet_type,
-        mass = mass,
-        distance = distance,
-    )
-    db.session.add(planet)
-    db.session.commit()
-    planetSchema = PlanetSchema()
-    result = planetSchema.dump(planet)
-    message = 'Registration success!'
+@jwt_required()
+def add_planet() -> object:
+    try:
+        name = request.form['name']
+        planet_type = request.form['type']
+        mass = request.form['mass']
+        distance = request.form['distance']
+        planet = Planet(
+            planet_name = name,
+            planet_type = planet_type,
+            mass = mass,
+            distance = distance,
+        )
+        db.session.add(planet)
+        db.session.commit()
+        planet_schema = PlanetSchema()
+        result = planet_schema.dump(planet)
+        message = 'Registration success!'
+    except:
+        result = False
+        message = 'Error!'
     return jsonify({
         "message": message,
         "data": result
