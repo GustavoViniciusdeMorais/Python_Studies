@@ -209,14 +209,41 @@ def update_planet(id: int) -> object:
     try:
         plant_id = int(id)
         planet = Planet.query.filter_by(planet_id=plant_id).first()
-        planet.planet_name = request.form['name']
-        planet.planet_type = request.form['type']
-        planet.mass = request.form['mass']
-        planet.distance = request.form['distance']
-        db.session.commit()
-        planet_schema = PlanetSchema()
-        result = planet_schema.dump(planet)
-        message = 'Update success!'
+        if planet:
+            planet.planet_name = request.form['name']
+            planet.planet_type = request.form['type']
+            planet.mass = request.form['mass']
+            planet.distance = request.form['distance']
+            db.session.commit()
+            planet_schema = PlanetSchema()
+            result = planet_schema.dump(planet)
+            message = 'Update success!'
+        else:
+            result = False
+            message = 'Planet not found!'
+    except:
+        result = False
+        message = 'Error!'
+    return jsonify({
+        "message": message,
+        "data": result
+    })
+
+@app.route('/delete_planet/<int:id>', methods=['DELETE'])
+@jwt_required()
+def delete_planet(id: int) -> object:
+    try:
+        plant_id = int(id)
+        planet = Planet.query.filter_by(planet_id=plant_id).first()
+        if planet:
+            db.session.delete(planet)
+            db.session.commit()
+            planet_schema = PlanetSchema()
+            result = planet_schema.dump(planet)
+            message = 'Deleted success!'
+        else:
+            result = False
+            message = 'Planet not found!'
     except:
         result = False
         message = 'Error!'
