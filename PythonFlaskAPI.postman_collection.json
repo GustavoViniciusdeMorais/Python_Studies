@@ -168,6 +168,130 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create Planet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMTI3MTI3MCwianRpIjoiNDQyZDcwNDktOWYzZS00ZjMxLTkwZWUtYjA2MTM5YTQyMWMxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXJAbWFsaW5hdG9yLmNvbSIsIm5iZiI6MTcwMTI3MTI3MCwiZXhwIjoxNzAxMjcyMTcwfQ.V7mfW8GqCOPDW_X00g0Ky2GSdVxL7q98DARICUUX1Vc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{$randomWord}}",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "{{$randomWord}}",
+							"type": "text"
+						},
+						{
+							"key": "mass",
+							"value": "{{$randomInt}}",
+							"type": "text"
+						},
+						{
+							"key": "distance",
+							"value": "{{$randomInt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/add_planet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"add_planet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Planet",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMTM4MDIyNiwianRpIjoiZWEwYzgyM2ItNTlkMi00NWVlLWI3NjQtOWI1Nzg0NGZmNDc2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXJAbWFsaW5hdG9yLmNvbSIsIm5iZiI6MTcwMTM4MDIyNiwiZXhwIjoxNzAxMzgxMTI2fQ.P3z0QYK-5CCWQ4J-oLVmLT4ntrGQFDr9t7mBo6bo7oo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{$randomWord}}",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "{{$randomWord}}",
+							"type": "text"
+						},
+						{
+							"key": "mass",
+							"value": "{{$randomInt}}",
+							"type": "text"
+						},
+						{
+							"key": "distance",
+							"value": "{{$randomInt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/update_planet/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"update_planet",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Destroy Planet",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMTM4MDIyNiwianRpIjoiZWEwYzgyM2ItNTlkMi00NWVlLWI3NjQtOWI1Nzg0NGZmNDc2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InVzZXJAbWFsaW5hdG9yLmNvbSIsIm5iZiI6MTcwMTM4MDIyNiwiZXhwIjoxNzAxMzgxMTI2fQ.P3z0QYK-5CCWQ4J-oLVmLT4ntrGQFDr9t7mBo6bo7oo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/delete_planet/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"delete_planet",
+						"2"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
