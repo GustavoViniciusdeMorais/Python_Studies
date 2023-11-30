@@ -203,6 +203,27 @@ def add_planet() -> object:
         "data": result
     })
 
+@app.route('/update_planet/<int:id>', methods=['PUT'])
+@jwt_required()
+def update_planet(id: int) -> object:
+    try:
+        plant_id = int(id)
+        planet = Planet.query.filter_by(planet_id=plant_id).first()
+        planet.planet_name = request.form['name']
+        planet.planet_type = request.form['type']
+        planet.mass = request.form['mass']
+        planet.distance = request.form['distance']
+        db.session.commit()
+        planet_schema = PlanetSchema()
+        result = planet_schema.dump(planet)
+        message = 'Update success!'
+    except:
+        result = False
+        message = 'Error!'
+    return jsonify({
+        "message": message,
+        "data": result
+    })
 
 # database models
 class User(db.Model):
