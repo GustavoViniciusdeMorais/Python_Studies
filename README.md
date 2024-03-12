@@ -33,4 +33,10 @@ GET http://localhost/docs
 GET http://localhost/validations/?q=111
 <br>
 
+### Upload files
+```sh
+curl -X POST --form 'file=@"./imgs/usersPost.png"' localhost/uploadfile
+curl -X POST --form 'file=@"./imgs/usersPost.png"' localhost/files
+```
+
 ![](./imgs/usersPost.png)

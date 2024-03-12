@@ -1,6 +1,7 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, File, UploadFile
 from typing_extensions import Annotated
 from typing import Union
+from fastapi.responses import ORJSONResponse
 
 import sys
 import os
@@ -48,3 +49,12 @@ async def validation_exmaple(
     if q:
         result.update({"q": q})
     return result
+
+@app.post("/files")
+async def create_file(file: Annotated[bytes, File()]):
+    print("test")
+    return {"file_size": len(file)}
+
+@app.post("/uploadfile", response_class=ORJSONResponse)
+async def create_upload_file(file: UploadFile):
+    return ORJSONResponse([{"filename": file.filename}])

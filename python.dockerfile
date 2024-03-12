@@ -1,4 +1,4 @@
-FROM gustavovinicius/guspy:fastapi
+FROM gustavovinicius/webserver:freenginx
 WORKDIR /code
 # RUN apk add --no-cache gcc musl-dev linux-headers
 # RUN apk add tk
