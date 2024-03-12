@@ -1,4 +1,4 @@
-FROM gustavovinicius/webserver:freenginx
+FROM gustavovinicius/webserver:freenginx_python
 WORKDIR /code
 # RUN apk add --no-cache gcc musl-dev linux-headers
 # RUN apk add tk
