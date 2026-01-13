@@ -15,3 +15,8 @@ cd mysite
 python manage.py runserver 0.0.0.0:8000
 
 ```
+### Install module or start server
+```bash
+apt install python3-numpy -y
+python3 -m http.server 8080 --bind 0.0.0.0
+```
